@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 4, 2021, 2:26:14 PM
+    Author     : admin
+*/
+
+h1 {
+   color: white;
+   font-family: "Lucida Console", "Courier New", monospace;
+   font-weight: bold;
+   font-size: 32px;
+   padding-top: 10px;
+}
+
+.reg-title {
+    background-color: navy;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+}
+
+.backtologin{
+    height: 30px;
+    text-align: right;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.table {
+    margin: auto;
+    width: 75%;
+    border-style: hidden;
+}
+
+td {
+    height: 75px;
+    text-align: center;   
+}
+
+.tbody {
+    margin: 10px auto;
+    width: 35%;
+}
+
+.error {
+    font-weight: bold;
+    color: maroon;
+}
+
+a:link{
+    text-decoration: none;
+    color: navy;
+}
+
+a:visited{
+    text-decoration: none;
+    color: green;
+}
+
+a:hover{
+    text-decoration: none;
+    color: blue;
+}
+
+.success{
+    font-weight: bold;
+    color: green;
+}
