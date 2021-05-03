@@ -45,6 +45,11 @@ pipeline{
 		}	
             }
         }
+        stage('Cleaning Up Local Repo') { 
+            steps { 
+                sh "docker rmi $registry:$BUILD_NUMBER" 
+            }
+        } 
     }
 }
 
