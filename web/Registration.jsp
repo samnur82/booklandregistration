@@ -17,8 +17,8 @@
     <body>  
       <form action="InsertUser" method="POST">
         <div class="backtologin">
-            <a href="http://appslogin:8085/BookLandLogin/Login.jsp">Login</a>
-            <!--  <a href="http://appslogin:8080/BookLandLogin/Login.jsp">Login</a> -->
+            <!-- <a href="http://appslogin:8085/BookLandLogin/Login.jsp">Login</a> -->
+            <a href="http://appslogin:8090/BookLandLogin/Login.jsp">Login</a>
             <!-- <a href="http://localhost:8080/BookLandLogin/Login.jsp">Login</a> -->
         </div>
         <div class="tbody">
