@@ -26,7 +26,7 @@
           <table class="table">
             <tbody>
                 <tr>
-                    <td colspan="2" class="reg-title"><h1>Create Account</h1></td>
+                    <td colspan="2" class="reg-title"><h1>Create User Account</h1></td>
                 </tr>
                 <tr>
                    <td td colspan="2" class="align-middle"><input type="text" class="form-control" name="display_name" placeholder="Display Name*"></td>
