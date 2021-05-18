@@ -15,7 +15,7 @@ pipeline{
         }
         stage('clone repo') {
             steps {
-               sh 'git pull https://github.com/samnur82/booklandregistration.git master'
+               sh 'git pull https://github.com/samnur82/booklandregistration.git registration2'
             }
         }
         stage('Build BookLandRegistration War') {
@@ -26,7 +26,7 @@ pipeline{
         stage('Build BookLandRegistration Docker Image') {
             steps{
 	 	script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":regis2-$BUILD_NUMBER"
 		}
             }
         }
@@ -40,14 +40,14 @@ pipeline{
 		script {
 			docker.withRegistry( '', registryCred ) {
                             dockerImage.push()
-                            dockerImage.push('latest')
+                            // dockerImage.push('latest')
 			}
 		}	
             }
         }
         stage('Cleaning Up Local Repo') { 
             steps { 
-                sh "docker rmi $registry:$BUILD_NUMBER" 
+                sh "docker rmi $registry:regis2-$BUILD_NUMBER" 
             }
         } 
     }
