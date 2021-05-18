@@ -49,6 +49,7 @@
                 </tr>
                 <tr>
                     <td colspan="2"><span class="success">${error_message}</span><span class="success">${success_message}</span></td>
+                    <td colspan="2"><span hidden>booklandregistration</span></td>
                 </tr>
             </tbody>
           </table>
