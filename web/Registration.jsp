@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Registration.css" type="text/css" />              
     </head>
-    <body>  
+    <body>
+      <h2>tes update git</h2>
       <form action="InsertUser" method="POST">
         <div class="backtologin">
             <a href="http://jenkins.fitraalim.com:9010/BookLandLogin/Login.jsp">Login</a>
