@@ -38,6 +38,8 @@ public class InsertUser extends HttpServlet {
 	
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	long startTime = System.nanoTime();
+    	
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter printOut = response.getWriter();
         Connection con = null;
@@ -54,14 +56,18 @@ public class InsertUser extends HttpServlet {
         
         try {
             // verify no empty field or null field
-            if (displayname.equals(null) || displayname.isEmpty() || firstname.equals(null) || firstname.isEmpty() || lastname.equals(null) || lastname.isEmpty() 
-                    || email.equals(null) || email.isEmpty() || password.equals(null) || password.isEmpty() || confirm_password.equals(null) || confirm_password.isEmpty()){
-                request.setAttribute("error", "null or empty field are not allowed");
+        	if (
+            		displayname.equals(null) || displayname.isEmpty() || 
+            		firstname.equals(null) || firstname.isEmpty() ||
+            		lastname.equals(null) || lastname.isEmpty() || 
+            		email.equals(null) || email.isEmpty() || 
+            		password.equals(null) || password.isEmpty() || 
+            		confirm_password.equals(null) || confirm_password.isEmpty()){
+                request.setAttribute("error_message", "null or empty field are not allowed");
                 request.getRequestDispatcher("/Registration.jsp").forward(request, response);
             }else{
                 // verify whether pass and confirm pass are the same
                 if (password.equals(confirm_password)){
-                    
                     // create connection to mysql db
                     con = DBConnection.initializeDatabase();
                     
@@ -114,6 +120,10 @@ public class InsertUser extends HttpServlet {
                 printOut.println(err.getMessage());    
             }
         }
+        
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime) / 1000000;
+        System.out.println(duration);
     }
  
 }
