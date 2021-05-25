@@ -24,7 +24,6 @@ public class DBConnection {
     protected static Connection initializeDatabase() throws SQLException, ClassNotFoundException {
         // initialize all the information regarding database connection
         String dbDriver = "com.mysql.jdbc.Driver";
-        String dbName = "mybookstore";
         
         // non docker env
         //String dbURL = "jdbc:mysql://192.168.56.119:3306/";           // using ip
@@ -33,9 +32,15 @@ public class DBConnection {
         //String dbUserPass = "P@ssw0rd1234";     // non docker env
         
         // docker env
-        String dbURL = "jdbc:mysql://appsdb:3306/";
-        String dbUser = "root";                
-        String dbUserPass = "P@ssw0rd1234";      
+        //String dbURL = "jdbc:mysql://appsdb:3306/";
+        //String dbUser = "root";                
+        //String dbUserPass = "P@ssw0rd1234";
+        
+        // MySQL
+        String dbURL = "jdbc:mysql://localhost:3306/";
+        String dbName = "bookland";
+        String dbUser = "root";
+        String dbUserPass = "";
         
         Class.forName(dbDriver);
         Connection dbConn = DriverManager.getConnection(dbURL + dbName + "?serverTimezone=UTC", dbUser, dbUserPass);

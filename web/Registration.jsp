@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Registration.css" type="text/css" />              
     </head>
     <body>
-      <h2>tes update git</h2>
       <form action="InsertUser" method="POST">
         <div class="backtologin">
             <a href="http://jenkins.fitraalim.com:9010/BookLandLogin/Login.jsp">Login</a>
