@@ -65,6 +65,15 @@ public class InsertUser extends HttpServlet {
             		confirm_password.equals(null) || confirm_password.isEmpty()){
                 request.setAttribute("error_message", "null or empty field are not allowed");
                 request.getRequestDispatcher("/Registration.jsp").forward(request, response);
+        	}else if(
+        			CheckInjection.isJsInject(displayname) ||
+        			CheckInjection.isJsInject(firstname) ||
+        			CheckInjection.isJsInject(lastname) ||
+        			CheckInjection.isJsInject(email) ||
+        			CheckInjection.isJsInject(password) ||
+        			CheckInjection.isJsInject(confirm_password)){
+        		request.setAttribute("error_message", "Javascript Injection Detected!");
+        		request.getRequestDispatcher("/Registration.jsp").forward(request, response);
             }else{
                 // verify whether pass and confirm pass are the same
                 if (password.equals(confirm_password)){
