@@ -1,5 +1,5 @@
 # use tomcat-java base images
-FROM tomcat:jdk8-openjdk
+FROM tomcat:jdk11-openjdk
 
 # copy apps war file into webapps tomcat directory
 COPY dist/BookLandRegistration.war /usr/local/tomcat/webapps/
