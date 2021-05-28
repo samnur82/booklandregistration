@@ -40,7 +40,7 @@ public class DBConnection {
         String dbURL = "jdbc:mysql://localhost:3306/";
         String dbName = "bookland";
         String dbUser = "root";
-        String dbUserPass = "";
+        String dbUserPass = "ivan98";
         
         Class.forName(dbDriver);
         Connection dbConn = DriverManager.getConnection(dbURL + dbName + "?serverTimezone=UTC", dbUser, dbUserPass);
