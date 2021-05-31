@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                sh "docker build -t ${DOCKERHUB_CRED_USR}/booklandregistration:latest ."
+                sh "docker build -t ${DOCKERHUB_CRED_USR}/booklandregistration:${VERSION} ."
             }
         }
         stage('Push to Dockerhub') {
