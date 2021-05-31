@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKERHUB_CRED = credentials('DockerhubCredential')
+    }
+    stages {
+        stage('Create WAR') {
+            steps {
+                dir('web') {
+                    sh 'jar -cvf BookLandRegistration.war *'
+                }
+            sh 'rm -rf dist'
+            sh 'mkdir dist'
+            sh 'mv web/BookLandRegistration.war dist'
+            }
+        }
+        stage('Build Image') {
+            steps {
+                sh "docker build -t ${DOCKERHUB_CRED_USR}/booklandregistration:latest ."
+            }
+        }
+        stage('Push to Dockerhub') {
+            steps {
+                sh "echo ${DOCKERHUB_CRED_PSW} | docker login -u ${DOCKERHUB_CRED_USR} --password-stdin"
+                sh 'docker push ${DOCKERHUB_CRED_USR}/booklandregistration:latest'
+            }
+        }
+    }
+    post {
+        always {
+            sh 'docker logout'
+        }
+    }
+}
