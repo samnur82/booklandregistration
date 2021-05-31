@@ -4,6 +4,9 @@ pipeline {
     environment {
         DOCKERHUB_CRED = credentials('DockerhubCredential')
     }
+	parameters {
+	    string(name: 'VERSION', default-value: 'latest', description: 'The version of the image')
+	}
     stages {
         stage('Create WAR') {
             steps {
@@ -23,7 +26,7 @@ pipeline {
         stage('Push to Dockerhub') {
             steps {
                 sh "echo ${DOCKERHUB_CRED_PSW} | docker login -u ${DOCKERHUB_CRED_USR} --password-stdin"
-                sh 'docker push ${DOCKERHUB_CRED_USR}/booklandregistration:latest'
+                sh "docker push ${DOCKERHUB_CRED_USR}/booklandregistration:${VERSION}"
             }
         }
     }
