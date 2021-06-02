@@ -54,13 +54,6 @@ public class InsertUser extends HttpServlet {
         String password = request.getParameter("password").trim();
         String confirm_password = request.getParameter("confirm_password").trim();
         
-        long sleep0_8 = System.nanoTime();
-        while (true) {
-        	if ((System.nanoTime() - sleep0_8) / 1000000 >= 800) {
-        		break;
-        	}
-        }
-        
         try {
             // verify no empty field or null field
         	if (
